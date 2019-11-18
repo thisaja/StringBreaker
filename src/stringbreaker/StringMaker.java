@@ -12,14 +12,14 @@ import java.util.Arrays;
  * @author thisajaalwis
  */
 public class StringMaker {
-    private String s="";
+    private String s="AAC";
     private int length,min=65,max=69,range=(69 - 65) + 1;
     public StringMaker(int length){ 
         this.length=length;
-        for(int i=0;i<length;i++){
-            int num=(int)(Math.random() * range) + min;
-            s+=(char)num;
-        }
+//        for(int i=0;i<length;i++){
+//            int num=(int)(Math.random() * range) + min;
+//            s+=(char)num;
+//        }
     }
     public String getString(){
         return s;
@@ -32,18 +32,12 @@ public class StringMaker {
         return cnt;
     }
     public int numCorrect(String guess){
-        int arr[]=new int[5],cnt=0;
+        int stringCnt[]=new int[5],guessCnt[]=new int[5],cnt=0;
         for(int i=0;i<length;i++){
-            arr[s.charAt(i)-65]++;
-            arr[guess.charAt(i)-65]++;
+            stringCnt[s.charAt(i)-65]++;
+            guessCnt[guess.charAt(i)-65]++;
         }
-        for(int i=0;i<5;i++){
-            System.out.println(Arrays.toString(arr));
-            if(arr[i]%2==0)cnt+=arr[i]/2;
-            else if(arr[i]!=0){
-                cnt+=(arr[i]-1)/2;
-            }
-        }
+        for(int i=0;i<5;i++)cnt+=Math.min(stringCnt[i], guessCnt[i]);
         return cnt;
     }
 }
