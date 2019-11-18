@@ -28,28 +28,32 @@ public class StringBreaker {
         }while(chars<3 || chars>5);
         
         randomString=new StringMaker(chars);
-        System.out.println(randomString.getString());
         
         System.out.print("Enter how many times you want to guess: ");
         guesses=input.nextInt();
         
         for(int i=0;i<guesses;i++){
         	System.out.println("");
+        	
         	do {
 	            System.out.print("Enter your guess: ");
 	            guess=input.next().toUpperCase();
         	}while(!isValid(guess,randomString.getLength()));
+        	
         	numCorrect=randomString.numCorrectLetter(guess);
         	correct=randomString.numCorrectPos(guess);
             System.out.println(numCorrect+" of the letters you guessed were right and "+correct+" were in the right position.");
+            
             if(correct==randomString.getLength()) {
             	isCorrect=true;
             	break;
             }
+            
         }
+        
         input.close();
         if(isCorrect)System.out.println("Good Job! You guessed right!");
-        else System.out.println("Nice Try! The correct answer was "+randomString.getString());
+        else System.out.println("Nice Try! The correct answer was "+randomString.getString()+".");
         
     }
     
