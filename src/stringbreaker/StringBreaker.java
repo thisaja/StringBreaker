@@ -14,6 +14,7 @@ public class StringBreaker {
 		for(int i=0;i<s.length();i++)if(s.charAt(i)>=70)return false;
 		return true;
 	}
+	
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         StringMaker randomString;
