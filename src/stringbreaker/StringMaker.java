@@ -64,7 +64,7 @@ public class StringMaker {
      * Pre: Users string guess
      * Post: An integer displaying the number of unique letters that are in the generated string
      */
-    public int numCorrectLetter(String guess){
+    public int numCorrect(String guess){
         int stringCnt[]=new int[5],guessCnt[]=new int[5],cnt=0;
         for(int i=0;i<LENGTH;i++){
             stringCnt[randomString.charAt(i)-65]++;
