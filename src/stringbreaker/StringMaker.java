@@ -60,17 +60,14 @@ public class StringMaker {
     
     /**
      * Method Description: Checks the user's input against the generated string to find the number
-     *                     of unique letters that are correct
+     *                     of letters that are correct
      * Pre: Users string guess
-     * Post: An integer displaying the number of unique letters that are in the generated string
+     * Post: An integer displaying the number of letters that are in the generated string
      */
     public int numCorrect(String guess){
-        int stringCnt[]=new int[5],guessCnt[]=new int[5],cnt=0;
-        for(int i=0;i<LENGTH;i++){
-            stringCnt[randomString.charAt(i)-65]++;
-            guessCnt[guess.charAt(i)-65]++;
-        }
-        for(int i=0;i<5;i++)cnt+=Math.min(stringCnt[i], guessCnt[i]);
-        return cnt;
+        int counter=0;
+        String s="ABCDE";
+        for(int i=0;i<s.length();i++) if(randomString.contains(Character.toString(s.charAt(i))) && guess.contains(Character.toString(s.charAt(i))))counter++;    
+        return counter;     
     }
 }
