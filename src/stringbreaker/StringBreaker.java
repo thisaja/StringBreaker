@@ -24,7 +24,6 @@ public class StringBreaker {
         } while (numLetters<3 || numLetters>5);
         
         randomString=new StringMaker(numLetters);
-        //System.out.println(randomString.getString());
         
         System.out.print("Enter how many times you want to guess: ");
         player=new Player(input.nextInt());
